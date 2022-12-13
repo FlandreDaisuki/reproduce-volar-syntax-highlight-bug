@@ -51,7 +51,7 @@
 
 then everything will be fine.
 
-## Checklists
+## Expected
 
 - [ ] find `.vue` path if import folder path from `App.vue` with alias in `jsconfig.json`
 - [ ] the type of components in `App.vue` `components` can not be `any`
