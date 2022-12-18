@@ -21,38 +21,37 @@
 
 ## Reproduce steps
 
-1. clone it and install volar and `pnpm i`
-2. inspect `src/Hello/World/World.vue` & `src/Bye/World/World.vue`
+1. Clone it and install [volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+2. Run `Volar (Debug): Write Virtual Files` command
+3. Disable Volar Extension in the workspace and reload vscode
+4. Inspect `src/Hello/World/World.vue.js` & `src/Bye/World/World.vue.js`
 
-## Some observation
+## Some observations
 
 1. remove jsconfig.json can mitigate
 
-2. rename `Bye/World` to `Bye/WorldWar` and modified `Bye/WorldWar/package.json` by following
+2. modified `name` or`version` or `main` of `package.json` following
 
 ```diff
 {
 - "name": "World",
-+ "name": "WorldWar",
++ "name": "World2",
   "version": "0.0.0",
   "private": true,
   "main": "./World.vue"
 }
 ```
 
-   and `App.vue` by following
-
-```diff
-  <script>
-  import HelloWorld from '@/Hello/World'
-- import ByeWorld from '@/Bye/World'
-+ import ByeWorld from '@/Bye/WorldWar'
-```
-
-then everything will be fine.
+then the syntax highlight will be fine.
 
 ## Expected
 
+- [ ] syntax highlight should be correct in every `.vue`
 - [ ] find `.vue` path if import folder path from `App.vue` with alias in `jsconfig.json`
 - [ ] the type of components in `App.vue` `components` can not be `any`
-- [ ] syntax highlight should be correct in every `.vue`
+
+## Related discussions
+
+- [johnsoncodehk/volar#2200](https://github.com/johnsoncodehk/volar/issues/2200)
+- [https://t.me/typescript_zh/65081](https://t.me/typescript_zh/65081)
+  - [video](demo.mp4)
